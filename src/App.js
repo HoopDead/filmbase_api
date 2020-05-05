@@ -1,20 +1,40 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
 import "./index.css";
 import logo from "./logo.png";
 import { SearchBar } from "./components/SearchBar";
+import { DisplayData } from './components/DisplayData';
+import { Paggination } from './components/Paggination';
 import useAxios from 'axios-hooks'
 
 function App() {
+  const [{ query, queryPage }, setQuery] = useState(" ");
+
   const [{ data, loading, error }, refetch] = useAxios(
-    'https://api.themoviedb.org/3/search/multi?api_key=98c570ae9330466083212e565d6d3a78&language=en-US&query=Stranger&page=1&include_adult=false'
+    `https://api.themoviedb.org/3/search/multi?api_key=98c570ae9330466083212e565d6d3a78&language=pl-PL&query=${query}&page=${queryPage}&include_adult=false`
   )
+
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error!</p>
+
+  const fetch = (query, queryPage) => {
+    setQuery({query, queryPage});
+    refetch();
+    return 0;
+  }
+  if (data.results.length > 0) {
+    return (
+      <div>
+        <SearchBar fetch = { fetch }></SearchBar>
+        <DisplayData data = { data }></DisplayData>
+        <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <button onClick = {refetch}>refetch</button>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <SearchBar fetch = { fetch }></SearchBar>
     </div>
   );
 }

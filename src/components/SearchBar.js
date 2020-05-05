@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-export function SearchBar() {
+export function SearchBar({fetch}) {
     const [value, setValue] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
         if (!value) return;
-        console.log(value);
+        fetch(value, 1);
         setValue("");
     }
 
