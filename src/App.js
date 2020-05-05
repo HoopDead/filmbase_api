@@ -8,7 +8,7 @@ import { Paggination } from './components/Paggination';
 import useAxios from 'axios-hooks'
 
 function App() {
-  const [{ query, queryPage }, setQuery] = useState(" ");
+  const [{ query, queryPage }, setQuery] = useState({query: " ", queryPage: 1});
 
   const [{ data, loading, error }, refetch] = useAxios(
     `https://api.themoviedb.org/3/search/multi?api_key=98c570ae9330466083212e565d6d3a78&language=pl-PL&query=${query}&page=${queryPage}&include_adult=false`
@@ -22,7 +22,7 @@ function App() {
     refetch();
     return 0;
   }
-  if (data.results.length > 0) {
+  if (data.results.length) {
     return (
       <div>
         <SearchBar fetch = { fetch }></SearchBar>
