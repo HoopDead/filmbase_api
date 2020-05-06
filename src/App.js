@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
+import './index.css'
 import { SearchBar } from "./components/SearchBar";
 import { DisplayData } from './components/DisplayData';
 import { Paggination } from './components/Paggination';
@@ -23,8 +24,16 @@ function App() {
   if (data.results.length) {
     return (
       <div>
+        <p className="h2 text-center m-2">
+        <img className="mr-2" src={require('./logo2.png')} alt=""/>
+          Film<span className="blue-text">base</span>
+        </p>
         <SearchBar fetch = { fetch }></SearchBar>
-        <DisplayData data = { data }></DisplayData>
+        <MDBContainer fluid>
+          <MDBRow>
+            <DisplayData data = { data }></DisplayData>
+          </MDBRow>
+        </MDBContainer>
         <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
       </div>
     );
@@ -32,6 +41,10 @@ function App() {
 
   return (
     <div>
+      <p className="h2 text-center m-2">
+          <img className="mr-2" src={require('./logo2.png')} alt=""/>
+          Film<span className="blue-text">base</span>
+      </p>
       <SearchBar fetch = { fetch }></SearchBar>
     </div>
   );

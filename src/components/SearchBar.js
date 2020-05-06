@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MDBInput } from "mdbreact";
+import { MDBInput, MDBIcon, MDBFormInline } from "mdbreact";
 
 export function SearchBar({fetch}) {
     const [value, setValue] = useState("");
@@ -13,7 +13,7 @@ export function SearchBar({fetch}) {
 
     return (
         <form onSubmit = { handleSubmit }>
-            <MDBInput className = "w-75 mx-auto" type = "text" onChange = {e => setValue(e.target.value)}></MDBInput>
+            <MDBInput hint="Szukaj" className = "w-50 mx-auto text-white" type = "text" onChange = {e => setValue(e.target.value)}></MDBInput>
         </form>
     )
 }
