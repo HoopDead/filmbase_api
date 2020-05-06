@@ -8,7 +8,7 @@ export function Paggination({data, q, fetch}) {
     }
 
     for (let i = 1; i <= data.total_pages; i++) {
-        items.push(<span onClick = {() => changeActivePage(i)} key = {i}>{i}</span>)
+        items.push(<span onClick = {() => changeActivePage(i)} key = {i}>{i} </span>)
     }
     return items;
 }

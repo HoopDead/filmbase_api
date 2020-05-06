@@ -1,7 +1,5 @@
 import React, { Component, useState } from "react";
 import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
-import "./index.css";
-import logo from "./logo.png";
 import { SearchBar } from "./components/SearchBar";
 import { DisplayData } from './components/DisplayData';
 import { Paggination } from './components/Paggination';
