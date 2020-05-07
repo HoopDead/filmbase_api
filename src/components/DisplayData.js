@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBFormInline } from "mdbreact";
+import { MDBRow, MDBCol, MDBFormInline } from "mdbreact";
 
 
 export function DisplayData({data}) {

@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
+import React, { useState } from "react";
+import { MDBContainer, MDBFormInline, MDBCol, MDBRow, MDBPagination, MDBPageItem } from "mdbreact";
 import './index.css'
 import { SearchBar } from "./components/SearchBar";
 import { DisplayData } from './components/DisplayData';
@@ -30,7 +30,19 @@ function App() {
         </p>
         <SearchBar fetch = { fetch }></SearchBar>
         <DisplayData data = { data }></DisplayData>
-        <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
+        <nav>
+          <MDBRow>
+            <MDBFormInline className="mx-auto">
+              <MDBCol>
+                <MDBPagination>
+                  <MDBPageItem>
+                    <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
+                  </MDBPageItem>
+                </MDBPagination>
+              </MDBCol>
+            </MDBFormInline>
+          </MDBRow>
+        </nav>
         </MDBContainer>
     );
   }

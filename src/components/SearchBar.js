@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MDBInput, MDBIcon, MDBFormInline } from "mdbreact";
+import { MDBInput } from "mdbreact";
 
 export function SearchBar({fetch}) {
     const [value, setValue] = useState("");

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBFormInline } from 'mdbreact'
+import { MDBPagination, MDBPageItem, MDBPageNav, MDBCol, MDBRow, MDBFormInline } from 'mdbreact'
 
 export function Paggination({data, q, fetch}) {
     let items = [];
@@ -9,10 +9,7 @@ export function Paggination({data, q, fetch}) {
     }
 
     for (let i = 1; i <= data.total_pages; i++) {
-        items.push(
-        <MDBFormInline key = {i} className="text-center">
-            <p onClick = {() => changeActivePage(i)} key = {i}>{i} </p>
-        </MDBFormInline>)
+        items.push(<MDBPageNav className="text-white" onClick = {() => changeActivePage(i)} key={i}> {i} </MDBPageNav>)
     }
     return items;
 }
