@@ -23,30 +23,26 @@ function App() {
   }
   if (data.results.length) {
     return (
-      <div>
-        <p className="h2 text-center m-2">
-        <img className="mr-2" src={require('./logo2.png')} alt=""/>
+      <MDBContainer fluid className = "h-100 min-vh-100">
+      <p className="h2 text-center m-5">
+        <img className="mr-2" src={require('./img/logo.png')} alt=""/>
           Film<span className="blue-text">base</span>
         </p>
         <SearchBar fetch = { fetch }></SearchBar>
-        <MDBContainer fluid>
-          <MDBRow>
-            <DisplayData data = { data }></DisplayData>
-          </MDBRow>
-        </MDBContainer>
+        <DisplayData data = { data }></DisplayData>
         <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
-      </div>
+        </MDBContainer>
     );
   }
 
   return (
-    <div>
-      <p className="h2 text-center m-2">
-          <img className="mr-2" src={require('./logo2.png')} alt=""/>
+    <MDBContainer fluid className = "h-100 min-vh-100">
+    <p className="h2 text-center m-5">
+          <img className="mr-2" src={require('./img/logo.png')} alt=""/>
           Film<span className="blue-text">base</span>
       </p>
       <SearchBar fetch = { fetch }></SearchBar>
-    </div>
+      </MDBContainer>
   );
 }
 

@@ -10,7 +10,7 @@ export function Paggination({data, q, fetch}) {
 
     for (let i = 1; i <= data.total_pages; i++) {
         items.push(
-        <MDBFormInline className="text-center">
+        <MDBFormInline key = {i} className="text-center">
             <p onClick = {() => changeActivePage(i)} key = {i}>{i} </p>
         </MDBFormInline>)
     }
