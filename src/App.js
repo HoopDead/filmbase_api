@@ -7,10 +7,10 @@ import { Paggination } from './components/Paggination';
 import useAxios from 'axios-hooks'
 
 function App() {
+  const apiKey = process.env.REACT_APP_MOVIE_API_KEY;
   const [{ query, queryPage }, setQuery] = useState({query: " ", queryPage: 1});
-
   const [{ data, loading, error }, refetch] = useAxios(
-    `https://api.themoviedb.org/3/search/multi?api_key=98c570ae9330466083212e565d6d3a78&language=pl-PL&query=${query}&page=${queryPage}&include_adult=false`
+    `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=pl-PL&query=${query}&page=${queryPage}&include_adult=false`
   )
 
   if (loading) return <p>Loading...</p>
@@ -37,12 +37,12 @@ function App() {
 
   return (
     <MDBContainer fluid className = "h-100 min-vh-100">
-    <p className="h2 text-center m-5">
-          <img className="mr-2" src={require('./img/logo.png')} alt=""/>
-          Film<span className="blue-text">base</span>
+      <p className="h2 text-center m-5">
+            <img className="mr-2" src={require('./img/logo.png')} alt=""/>
+            Film<span className="blue-text">base</span>
       </p>
-      <SearchBar fetch = { fetch }></SearchBar>
-      </MDBContainer>
+        <SearchBar fetch = { fetch }></SearchBar>
+    </MDBContainer>
   );
 }
 
