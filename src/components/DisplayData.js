@@ -14,7 +14,7 @@ export function DisplayData({data}) {
                       <h3>{result.title || result.name || result.original_name }</h3>
                       <p>{result.overview || "Nie znaleziono opisu w bazie danych."}</p>
 
-                      <img src = {`https://image.tmdb.org/t/p/w300/${result.poster_path}`}></img>
+                      <img src = {`https://image.tmdb.org/t/p/w300/${result.poster_path}`} alt="Plakat filmu"></img>
                     </MDBCol> )
           } else {
             return ( 
@@ -22,7 +22,7 @@ export function DisplayData({data}) {
                 <h3>{result.title || result.name || result.original_name }</h3>
                 <p>{result.overview || "Nie znaleziono opisu w bazie danych."}</p>
 
-                <img src = {require('../img/empty_poster.jpg')}></img>
+                <img src = {require('../img/empty_poster.jpg')} alt="Film bez plakatu"></img>
               </MDBCol> )
           }})}
           </MDBFormInline>

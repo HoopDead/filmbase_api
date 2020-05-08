@@ -32,15 +32,15 @@ function App() {
         <DisplayData data = { data }></DisplayData>
         <nav>
           <MDBRow>
-            <MDBFormInline className="mx-auto">
-              <MDBCol>
-                <MDBPagination>
-                  <MDBPageItem>
+            <MDBCol>
+              <MDBPagination>
+                <MDBPageItem className="mx-auto">
+                  <MDBFormInline>
                     <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
-                  </MDBPageItem>
-                </MDBPagination>
-              </MDBCol>
-            </MDBFormInline>
+                  </MDBFormInline>
+                </MDBPageItem>
+              </MDBPagination>
+            </MDBCol>
           </MDBRow>
         </nav>
         </MDBContainer>
@@ -50,10 +50,10 @@ function App() {
   return (
     <MDBContainer fluid className = "h-100 min-vh-100">
       <p className="h2 text-center m-5">
-            <img className="mr-2" src={require('./img/logo.png')} alt=""/>
-            Film<span className="blue-text">base</span>
+        <img className="mr-2" src={require('./img/logo.png')} alt=""/>
+        Film<span className="blue-text">base</span>
       </p>
-        <SearchBar fetch = { fetch }></SearchBar>
+      <SearchBar fetch = { fetch }></SearchBar>
     </MDBContainer>
   );
 }
