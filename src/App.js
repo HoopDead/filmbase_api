@@ -30,7 +30,6 @@ function App() {
         </p>
         <SearchBar fetch = { fetch }></SearchBar>
         <DisplayData data = { data }></DisplayData>
-        <nav>
           <MDBRow>
             <MDBCol>
               <MDBPagination>
@@ -42,7 +41,6 @@ function App() {
               </MDBPagination>
             </MDBCol>
           </MDBRow>
-        </nav>
         </MDBContainer>
     );
   }
