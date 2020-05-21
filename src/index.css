@@ -7,3 +7,14 @@
     background-color: #1C1F22;
     padding: 1rem;
 }
+
+/* Override MDBootstrap Card in DisplayData.js */
+.card-text {
+    font-size: 0.9rem !important;
+}
+
+
+.card-image {
+    background-position: center center;
+    background-size: cover;
+}
