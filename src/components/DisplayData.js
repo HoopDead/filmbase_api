@@ -21,11 +21,14 @@ export function DisplayData({data}) {
                     </MDBCol> )
           } else {
             return ( 
-              <MDBCol key = {index} md="3" xs = "12" className="my-md-3 my-xs-1 text-center pt-3">
-                <h3>{result.title || result.name || result.original_name }</h3>
-                <p>{result.overview || "Nie znaleziono opisu w bazie danych."}</p>
-
-                <img src = {require('../img/empty_poster.jpg')} alt="Film bez plakatu"></img>
+              <MDBCol key = {index} md="8" xs = "12" className="ml-auto">
+                <MDBCard className = "flex-md-row mb-4 box-shadow h-md-250">
+                  <MDBCardImage src = {require('../img/small_poster.jpg')} className = "card-img-right flex-auto d-none d-lg-block"></MDBCardImage>
+                  <MDBCardBody className = "w-25 w-100 d-flex flex-column align-items-start">
+                    <MDBCardTitle className = "blue-text">{result.title || result.name || result.original_name }</MDBCardTitle>
+                    <MDBCardText className = "text-justify">{result.overview || "Nie znaleziono opisu w bazie danych."}</MDBCardText>
+                  </MDBCardBody>
+                </MDBCard>
               </MDBCol> )
           }})}
         </div>

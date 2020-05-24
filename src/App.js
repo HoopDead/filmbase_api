@@ -4,6 +4,7 @@ import './index.css'
 import { SearchBar } from "./components/SearchBar";
 import { DisplayData } from './components/DisplayData';
 import { Paggination } from './components/Paggination';
+import { NavbarPage } from './components/Navbar';
 import useAxios from 'axios-hooks'
 
 function App() {
@@ -23,25 +24,28 @@ function App() {
   }
   if (data.results.length) {
     return (
-      <MDBContainer fluid className = "h-100 min-vh-100">
-      <p className="h2 text-center m-5">
-        <img className="mr-2" src={require('./img/logo.png')} alt=""/>
-          Film<span className="blue-text">base</span>
-        </p>
-        <SearchBar fetch = { fetch }></SearchBar>
-        <DisplayData data = { data }></DisplayData>
-          <MDBRow>
-            <MDBCol>
-              <MDBPagination>
-                <MDBPageItem className="mx-auto">
-                  <MDBFormInline>
-                    <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
-                  </MDBFormInline>
-                </MDBPageItem>
-              </MDBPagination>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+      <div>
+        <NavbarPage></NavbarPage>
+        <MDBContainer fluid className = "h-100 min-vh-100">
+        <p className="h2 text-center m-5">
+          <img className="mr-2" src={require('./img/logo.png')} alt=""/>
+            Film<span className="blue-text">base</span>
+          </p>
+          <SearchBar fetch = { fetch }></SearchBar>
+          <DisplayData data = { data }></DisplayData>
+            <MDBRow>
+              <MDBCol>
+                <MDBPagination>
+                  <MDBPageItem className="mx-auto">
+                    <MDBFormInline>
+                      <Paggination data = { data } q = { query } fetch = { fetch }></Paggination>
+                    </MDBFormInline>
+                  </MDBPageItem>
+                </MDBPagination>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </div>
     );
   }
 
